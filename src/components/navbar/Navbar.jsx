@@ -1,53 +1,52 @@
-import Link from "next/link";
-import styles from "./navbar.module.css";
+import Link from 'next/link';
 
 const Navbar = async () => {
   const links = [
     {
-      title: "Home",
-      path: "/",
+      title: 'Home',
+      path: '/',
     },
     {
-      title: "Products",
-      path: "/products",
+      title: 'Products',
+      path: '/products',
     },
     {
-      title: "Contact",
-      path: "/contact",
+      title: 'Contact',
+      path: '/contact',
     },
     {
-      title: "User",
-      path: "/user",
+      title: 'User',
+      path: '/user',
     },
   ];
 
   return (
-    <div className="navbar bg-base-100">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+    <div className='navbar bg-base-100'>
+      <div className='navbar-start'>
+        <div className='dropdown'>
+          <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+              xmlns='http://www.w3.org/2000/svg'
+              className='h-5 w-5'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
             >
               <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
+                d='M4 6h16M4 12h8m-8 6h16'
               />
             </svg>
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
           >
             {links.map((link) => {
               return (
-                <div key={link.title} className="py-2 px-3">
+                <div key={link.title} className='py-2 px-3'>
                   <Link href={link.path}>{link.title}</Link>
                 </div>
               );
@@ -71,15 +70,15 @@ const Navbar = async () => {
             </li> */}
           </ul>
         </div>
-        <Link href="/" className="btn btn-ghost text-xl">
+        <Link href='/' className='btn btn-ghost text-xl'>
           Next JS
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+      <div className='navbar-center hidden lg:flex'>
+        <ul className='menu menu-horizontal px-1'>
           {links.map((link) => {
             return (
-              <div key={link.title} className="p-3">
+              <div key={link.title} className='p-3'>
                 <Link href={link.path}>{link.title}</Link>
               </div>
             );
@@ -105,8 +104,8 @@ const Navbar = async () => {
           </li> */}
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className='navbar-end'>
+        <a className='btn'>Button</a>
       </div>
     </div>
   );

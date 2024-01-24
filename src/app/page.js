@@ -1,24 +1,23 @@
-"use client";
+'use client';
 // using serverAction
-import { useFormState } from "react-dom";
-import { testServerAction } from "@/lib/serverActions";
+import { useFormState } from 'react-dom';
+import { testServerAction } from '@/lib/serverActions';
 // import Image from "next/image";
-import Link from "next/link";
+import Link from 'next/link';
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table';
 
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 const initialState = {
-  message: "",
+  message: '',
   data: [],
 };
 
@@ -26,16 +25,16 @@ export default function Home() {
   const [state, formAction] = useFormState(testServerAction, initialState);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
       <div>Home</div>
 
       <form action={formAction}>
-        <Input type="text" placeholder="Name and Surname" name="user" />
-        <Input type="text" placeholder="Email Address" name="email" />
-        <p aria-live="polite" className="sr-only">
+        <Input type='text' placeholder='Name and Surname' name='user' />
+        <Input type='text' placeholder='Email Address' name='email' />
+        <p aria-live='polite' className='sr-only'>
           {state?.message}
         </p>
-        <Button variant="outline" type="submit">
+        <Button variant='outline' type='submit'>
           Submit
         </Button>
       </form>
@@ -43,26 +42,26 @@ export default function Home() {
         {/* <TableCaption>List of Users</TableCaption> */}
         <TableHeader>
           <TableRow>
-            <TableHead className="text-right w-[100px]">User ID</TableHead>
-            <TableHead className="text-right">Name</TableHead>
-            <TableHead className="text-right">User Name</TableHead>
-            <TableHead className="text-right">Email</TableHead>
-            <TableHead className="text-right">Action</TableHead>
+            <TableHead className='text-right w-[100px]'>User ID</TableHead>
+            <TableHead className='text-right'>Name</TableHead>
+            <TableHead className='text-right'>User Name</TableHead>
+            <TableHead className='text-right'>Email</TableHead>
+            <TableHead className='text-right'>Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {state.data.length > 0 ? (
             state.data.map((usr) => (
               <TableRow key={usr.id}>
-                <TableCell className="font-medium w-[100px]">
+                <TableCell className='font-medium w-[100px]'>
                   {usr.id}
                 </TableCell>
-                <TableCell className="text-right">{usr.name}</TableCell>
-                <TableCell className="text-right">{usr.username}</TableCell>
-                <TableCell className="text-right">{usr.email}</TableCell>
+                <TableCell className='text-right'>{usr.name}</TableCell>
+                <TableCell className='text-right'>{usr.username}</TableCell>
+                <TableCell className='text-right'>{usr.email}</TableCell>
                 <Link
                   href={`/user/${usr.id}`}
-                  className="btn btn-primary font-medium"
+                  className='btn btn-primary font-medium'
                   prefetch={false}
                 >
                   View User Details
@@ -70,7 +69,7 @@ export default function Home() {
               </TableRow>
             ))
           ) : (
-            <div className="m-5 text-center w-[100%]"> No data found</div>
+            <div className='m-5 text-center w-[100%]'> No data found</div>
           )}
         </TableBody>
       </Table>

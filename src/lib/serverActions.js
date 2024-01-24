@@ -1,4 +1,4 @@
-"use server";
+'use server';
 
 // export const testServerAction = async (formData) => {
 //   const { user, email } = Object.fromEntries(formData);
@@ -37,49 +37,49 @@
 
 export const testServerAction = async (prevState, formData) => {
   let result = {
-    message: "",
+    message: '',
     data: [],
   };
   const { user, email } = Object.fromEntries(formData);
   console.log(
-    "======================================================================="
+    '=======================================================================',
   );
   try {
-    const payload = {
-      user,
-      email,
-    };
+    // const payload = {
+    //   user,
+    //   email,
+    // };
 
-    console.log("test Server called", user, email, prevState);
+    console.log('test Server called', user, email, prevState);
     // Fetch data from an external API
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
 
     // Check if the request was successful
     if (response.status === 200) {
       // Redirect the user to a success page
       const data = await response.json();
-      console.log("response", data);
+      console.log('response', data);
       result = {
-        message: "data fetch successfully",
+        message: 'data fetch successfully',
         data,
       };
     } else {
       // Display an error message to the user
-      alert("There was an error submitting the form.");
+      alert('There was an error submitting the form.');
       result = {
-        message: "data fetch error",
+        message: 'data fetch error',
         data: [],
       };
     }
 
-    console.log("saved to db");
+    console.log('saved to db');
     console.log(
-      "======================================================================="
+      '=======================================================================',
     );
     // revalidatePath("/");
     return result;
   } catch (err) {
     console.log(err);
-    return { error: "Something went wrong!" };
+    return { error: 'Something went wrong!' };
   }
 };
